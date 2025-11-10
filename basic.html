@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Fundamentals Interactive Program By Prajohn Hona</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      padding-top: 60px;
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    p {
+      font-size: 18px;
+      color: #333;
+    }
+    h3 {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>JavaScript Fundamentals Demo</h2>
+  <p id="output"></p>
+  <div id="bravo"></div>
+  <script>
+   
+    let num1 = parseFloat(prompt("Enter the first number:"));
+    let num2 = parseFloat(prompt("Enter the second number:"));
+    let operation = prompt("Enter an operation (add, subtract, multiply, divide):").toLowerCase();
+    let result; 
+
+    switch (operation) {
+      case "add":
+        result = num1 + num2;
+        break;
+      case "subtract":
+        result = num1 - num2;
+        break;
+      case "multiply":
+        result = num1 * num2;
+        break;
+      case "divide":
+        if (num2 !== 0) {
+          result = num1 / num2;
+        } else {
+          result = "Error: Cannot divide by zero!";
+        }
+        break;
+      default:
+        result = "Invalid operation!";
+    }
+    let bravoMessage = "";
+    for (let i = 1; i <= 3; i++) {
+      bravoMessage += "<h3>The program is done — BRAVO!</h3>";
+    }
+    document.getElementById("output").innerHTML =
+      "You chose to <b>" + operation + "</b> the numbers " + num1 + " and " + num2 + ".<br><br>" +
+      "Result: <b>" + result + "</b>";
+    document.getElementById("bravo").innerHTML = bravoMessage;
+  </script>
+</body>
+</html>
