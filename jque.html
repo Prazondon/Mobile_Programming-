@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>  
+</head>
+<body>
+
+<button id="show">Click to show p section</button>
+
+
+<div class="color" style="display: none;">
+    <p>To change color to red</p>
+    <p>To change color to blue</p>
+    <p>To change color to green</p>
+    <p>To change color to yellow</p>
+    <button id="hide">Hide everything</button>
+</div>
+
+<script>
+
+
+$(document).ready(function() {
+
+    // Show paragraphs when "show" button is clicked
+    $("#show").click(function() {
+        $(".color").show();
+    });
+
+    // Hide everything when "hide" button is clicked
+    $("#hide").click(function() {
+        $(".color").hide();
+        $("#show").hide();
+    });
+
+    // Change background colors for each paragraph
+    $("p").eq(0).click(function() {
+        $(this).css("background-color", "red");
+    });
+
+    $("p").eq(1).click(function() {
+        $(this).css("background-color", "blue");
+    });
+
+    $("p").eq(2).click(function() {
+        $(this).css("background-color", "green");
+    });
+
+    $("p").eq(3).click(function() {
+        $(this).css("background-color", "yellow");
+    });
+});
+</script>
+
+</body>
+</html>
