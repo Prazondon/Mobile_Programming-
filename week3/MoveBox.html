@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Animate Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <style>
+        .box {
+            background-color: red;
+            height: 100px;
+            width: 100px;
+            position: relative;
+            text-align: center;
+        }
+        #text {
+            font-size: 16px;
+            color: white;
+            margin: 0;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button">Click to animate</button>
+
+    <div class="box">
+        <p id="text">HELLO!</p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                
+                $(".box").animate({
+                    left: '300px',
+                    height: '150px',
+                    width: '150px'
+                }, "slow", function() {
+                    $(this).css("background-color", "orange");
+                });
+
+                
+                $("#text").animate({
+                    fontSize: '30px'
+                }, "slow");
+
+               
+                $(".box").animate({
+                    left: '0px',
+                    height: '100px',
+                    width: '100px'
+                }, "slow", function() {
+                    $(this).css("background-color", "red");
+                    $("#text").animate({
+                        fontSize: '16px'
+                    }, "slow");
+                });
+
+
+                $(".box").slideUp();
+
+            });
+        });
+    </script>
+</body>
+</html>
