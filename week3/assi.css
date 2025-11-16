@@ -1,0 +1,84 @@
+.navigation{
+    display: flex;
+    background-color: blanchedalmond;
+    padding: 30px;
+}
+
+
+
+.navigation a{
+    text-decoration: none;
+    color: black;
+    
+}
+
+.navigation li {
+    display: flex;
+    list-style: none;
+    padding: 20px;
+    
+}
+
+.navigation a:hover{
+    background-color: rgb(169, 102, 102);
+    padding: 20px;
+    font-size: larger;
+}
+
+.form_fo{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form_se{
+    padding: 20px;
+    ;
+}
+
+
+.main_form{
+    display: none;
+    background-color: darkcyan;
+    width: 600px;
+    margin-top: 170px;
+    display: block;
+    text-align: center;
+    
+
+}
+
+#top_text{
+    display: block;
+    padding: 20px;
+    font-size: larger;
+}
+
+
+#submit{
+    padding: 20px;
+}
+
+
+body{
+    background-color: aqua;
+}
+
+
+@media (max-width: 480px) {
+    body{
+        background-color: lightgreen;
+    }
+    .main_form{
+        width: 455px;
+    }
+
+    .form_fo{
+        display: block;
+        gap: 10px;
+        
+    }
+
+   
+}  
