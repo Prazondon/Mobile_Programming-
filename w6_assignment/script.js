@@ -1,14 +1,6 @@
-
-  // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
   import { getDatabase, ref, push, set, update, remove, get , onValue} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-database.js"; 
-
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
     apiKey: "AIzaSyCHxCPFyfxoMBi_sJ2ky_ewO1s84gGOedA",
     authDomain: "assignment-a9857.firebaseapp.com",
@@ -19,32 +11,20 @@
     appId: "1:598384984198:web:5d4b33a9948cdb818b9107",
     measurementId: "G-R1K6L4TQ9K"
   };
-
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
-
-// Global tasks array
 let tasks = [];
-
-// Get DOM elements
 const taskInput = document.getElementById('taskInput');
 const addBtn = document.getElementById('addBtn');
 const taskList = document.getElementById('taskList');
-
-// Initialize app
 document.addEventListener('DOMContentLoaded', () => {
     loadTasks();
-    
-    // Add task on button click
+
     addBtn.addEventListener('click', addTask);
-    
-    // Add task on Enter key
     taskInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') addTask();
     });
 });
-
-// Load tasks from database
 function loadTasks() {
     const tasksRef = ref(database, 'tasks');
     onValue(tasksRef, (snapshot) => {
@@ -53,8 +33,6 @@ function loadTasks() {
         renderTasks();
     });
 }
-
-// Add new task
 function addTask() {
     const taskName = taskInput.value.trim();
     
@@ -74,8 +52,6 @@ function addTask() {
         console.error('Error adding task:', error);
     });
 }
-
-// Toggle task completion
 function toggleTask(id) {
     const task = tasks.find(t => t.id === id);
     if (task) {
@@ -97,12 +73,8 @@ function toggleTask(id) {
         }
     }
 }
-
-// Make functions globally accessible
 window.toggleTask = toggleTask;
 window.addTask = addTask;
-
-// Render tasks to the screen
 function renderTasks() {
     if (tasks.length === 0) {
         taskList.innerHTML = '<li class="empty-message">No tasks yet. Add one above!</li>';
